@@ -3,9 +3,32 @@
 module.exports = (sequelize, DataTypes) => {
 
   const Bill = sequelize.define('Bill', {
-    date_purchase: {
+    
+	value_total_bill: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+	  validate: {
+        isNumeric: {
+          msg: "La cantidad debe ser numerica"
+        },
+        len: {
+          args: [1, 255],
+          msg: "La cantidad tiene que ser minimamente de 1 digito"
+        }
+      }
+    },
+	date_purchase: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: false,
+	  validate: {
+        isNumeric: {
+          msg: "La cantidad debe ser numerica"
+        },
+        len: {
+          args: [1, 255],
+          msg: "La cantidad tiene que ser minimamente de 1 digito"
+        }
+      }
     }
   }, {
     tableName: "bills"
@@ -14,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
 
 
   Bill.associate = function(models) { 
-	Bill.belongsToMany(models.Product, {through: 'Bill-Detail', as:'BillProduct'});
+	Bill.hasMany(models.BillDetail, { as: "BillDetails", foreignKey: "bill_id" });
   };
 
 

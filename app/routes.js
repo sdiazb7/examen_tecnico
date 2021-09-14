@@ -3,7 +3,6 @@ const router = express.Router();
 
 // Middlewares
 const auth = require('./middlewares/auth');
- 
 
 // Controllers
 const AuthController = require('./controllers/AuthController');
@@ -22,9 +21,11 @@ router.post('/api/signup', AuthController.signUp);
 // Rutas
 router.post('/api/product', auth, ProductController.save);
 router.get('/api/product', auth, ProductController.index);
-router.get('/api/product/:lot_number/:product_name',auth, ProductController.show);
+router.get('/api/product/:id',auth, ProductController.show);
 router.patch('/api/product/:id',auth, ProductController.update);
 router.delete('/api/product/:id',auth, ProductController.delete);
 router.post('/api/bill',auth, BillController.save,BillDetailController.save);
-router.get('/api/bill/:bill_id/:client_id',auth, BillDetailController.show);
+router.get('/api/bill/:bill_id/:client_id',auth, BillDetailController.billDetail);
+router.get('/api/bill/:client_id',auth, BillDetailController.billHistory);
+router.get('/api/bill',auth, BillDetailController.customerPurchaseList);
 module.exports = router;

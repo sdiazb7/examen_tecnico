@@ -34,17 +34,6 @@ module.exports = {
         })
     },
 
-	async find(req, res, next) {
-        let product = await Product.findByPk(req.params.id);
-
-        if (!product) {
-            res.status(404).json({ msg: "Producto no esta registrado" });
-        } else {
-            req.product = product;
-            next();
-        }
-    },
-	
     async index(req, res) {
         let products = await Product.findAll();
 
@@ -57,8 +46,7 @@ module.exports = {
         // Buscar producto
         Product.findOne({
             where: {
-                lot_number: req.params.lot_number,
-				product_name: req.params.product_name
+                id: req.params.id
             }
         }).then(r => {
 

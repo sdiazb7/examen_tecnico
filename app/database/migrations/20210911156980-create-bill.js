@@ -17,6 +17,10 @@ module.exports = {
 		},
 		onDelete: "CASCADE"
       },
+      value_total_bill: {
+        allowNull: false,
+        type: Sequelize.DECIMAL(9,2)
+      },
       date_purchase: {
         allowNull: false,
         type: Sequelize.DATE

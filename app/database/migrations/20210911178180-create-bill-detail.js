@@ -24,9 +24,13 @@ module.exports = {
           key: "id"
         }
       },
-	  value_unit: {
+	  quantity: {
         allowNull: false,
-		type: Sequelize.DECIMAL(8, 2)
+		type: Sequelize.INTEGER
+      },
+	  quantity_value_total: {
+        allowNull: false,
+		type: Sequelize.DECIMAL(9,2)
       },
 	  createdAt: {
         allowNull: false,

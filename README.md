@@ -1,13 +1,13 @@
 # examen_tecnico
 
-Para instalar este proyecto:
+#Para instalar este proyecto:
 Editar el archivo .env para asignar la base de datos.
-Instalar dependencias:
+#Instalar dependencias:
 npm install
-Crear tablas:
+#Crear tablas:
 npx sequelize-cli db:migrate
-Crear seeder de usuario administrador y roles:
+#Crear seeder de usuario administrador y roles:
 npx sequelize-cli db:seed:all
-Los accesos del usuario administrador por defecto son los siguientes:
+#Los accesos del usuario administrador por defecto son los siguientes:
 correo:dana@gmail.es
 contraseña:123456

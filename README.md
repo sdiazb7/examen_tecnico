@@ -1,5 +1,3 @@
-# examen_tecnico
-
 # Para instalar este proyecto:
 Editar el archivo .env para asignar la base de datos.
 # Instalar dependencias:
